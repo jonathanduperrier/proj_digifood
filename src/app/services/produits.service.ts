@@ -13,6 +13,6 @@ export class ProduitsService {
   constructor(private http: HttpClient) { }
 
   public getListOfProducts(){
-    return this.http.get<any>('menu.json');
+    return this.http.get<any>('./assets/menu.json');
   }
 }
