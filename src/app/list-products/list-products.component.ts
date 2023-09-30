@@ -5,6 +5,7 @@ import { takeUntil } from 'rxjs/operators';
 import { ProduitsService } from 'src/app/services/produits.service';
 
 import * as data from '../../assets/menu.json';
+import { CatProd } from '../models/catprod.model';
 
 @Component({
   selector: 'app-list-products',
@@ -17,7 +18,7 @@ export class ListProductsComponent {
 
   constructor(
     private http: HttpClient,
-    private produitsService: ProduitsService
+    private produitsService: ProduitsService,
 ) { }
 
   ngOnInit(): void {
@@ -27,7 +28,7 @@ export class ListProductsComponent {
 
   public initData() {
     this.produitsService.getListOfProducts().pipe(takeUntil(this.destroy$)).subscribe(
-      (res: any) => {
+      (res: CatProd) => {
         this.produits = res
         console.log("this.produits");
         console.log(this.produits);
