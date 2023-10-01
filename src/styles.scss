@@ -7,6 +7,23 @@
     font-family: "Gill Sans", sans-serif;
 }
 
+@media screen and (min-width: 800px) {
+    body{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+@media screen and (max-width: 799px) {
+    body{
+        margin-left: 3px;
+        margin-right: 3px;
+    }
+}
+
+h1 {
+    text-align: center;
+}
+
 // CSS table (a ajouter dans un fichier specifique)
 table {
     border-collapse: separate;
@@ -18,7 +35,6 @@ table {
 td {
     padding-left: 20px;
     border-right: 1px solid rgba(50, 63, 177, 0.2);
-    //font-family: Lato;
     height: 40px;
     input {
         border: none;
@@ -42,7 +58,6 @@ td:last-child {
     background: rgba(50, 63, 177, 0.05);
     color: rgba(22, 26, 64, 0.6);
     font-size: 14px;
-    //font-family: lato_bold;
     font-weight: bold;
     height: 32px;
 }

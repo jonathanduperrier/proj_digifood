@@ -33,8 +33,8 @@ export class ListProductsComponent {
     this.produitsService.getListOfProducts().pipe(takeUntil(this.destroy$)).subscribe(
       (res: CatProd) => {
         this.produits = res;
-        console.log("this.produits");
-        console.log(this.produits.categories);
+        // console.log("this.produits");
+        // console.log(this.produits.categories);
       }
     );
   }
