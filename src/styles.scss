@@ -2,3 +2,60 @@
 
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
+
+* {
+    font-family: "Gill Sans", sans-serif;
+}
+
+// CSS table (a ajouter dans un fichier specifique)
+table {
+    border-collapse: separate;
+    border-spacing: 0 8px;
+    width: 100%;
+    font-family: "Gill Sans", sans-serif;
+}
+
+td {
+    padding-left: 20px;
+    border-right: 1px solid rgba(50, 63, 177, 0.2);
+    //font-family: Lato;
+    height: 40px;
+    input {
+        border: none;
+    }
+    .ng-select.ng-select-single .ng-select-container {
+        border: none;
+    }
+}
+
+td:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+td:last-child {
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    border-right: none !important;
+}
+
+.headerTable {
+    background: rgba(50, 63, 177, 0.05);
+    color: rgba(22, 26, 64, 0.6);
+    font-size: 14px;
+    //font-family: lato_bold;
+    font-weight: bold;
+    height: 32px;
+}
+
+.lineTable {
+    background: #FFFFFF;
+    border: 1px solid rgba(50, 63, 177, 0.05);
+    border-radius: 5px !important;
+    height: 30px;
+    color: #313137;
+    font-size: 14px;
+    margin-bottom: 5px;
+    &:hover {
+        background-color: #F4F5FB;
+    }
+}
