@@ -1,7 +1,7 @@
 <h1>Liste des produits</h1>
 
 <ul ngbNav #nav="ngbNav" [(activeId)]="activeTab" class="nav-tabs">
-	<li *ngFor="let p of this.produits.categories" [ngbNavItem]="p.name">
+	<li *ngFor="let p of this.produits" [ngbNavItem]="p.name">
 		<button ngbNavLink>{{p.name}}</button>
 		<ng-template ngbNavContent>
             <table>
