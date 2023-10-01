@@ -40,8 +40,6 @@ export class ListProductsComponent {
 
   public addToKart(id:Number) {
     console.log("addToKart " + id);
-    
-
   }
 
 }

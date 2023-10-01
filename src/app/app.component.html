@@ -1,1 +1,5 @@
-<app-list-products></app-list-products>
+<div><a routerLink="payment_cart">page du paiement</a></div>
+<div><a routerLink="list_products">Liste des produits</a></div>
+
+<app-list-products *ngIf="router.url === '/list_products'"></app-list-products>
+<app-payment-cart *ngIf="router.url === '/payment_cart'"></app-payment-cart>
