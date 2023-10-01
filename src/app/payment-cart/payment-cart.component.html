@@ -2,4 +2,15 @@
 <div *ngFor="let p of this.product_cart">
     {{p.id}} - {{p.qteProd}}
 </div>
-<button type="button" class="btn btn-primary" (click)="pay()" routerLink="list_products">Payer</button>
+
+<table>
+    <tr class="headerTable">
+        <td>ID</td>
+        <td>Nom du produit</td>
+        <td>Prix TTC</td>
+        <td>Quantités</td>
+    </tr>
+</table>
+<div id="payButton">
+    <button type="button" class="btn btn-danger" (click)="pay()" routerLink="list_products">Payer</button>
+</div>

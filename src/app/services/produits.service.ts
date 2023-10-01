@@ -1,7 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
-import { map, take } from 'rxjs/operators';
 import { CatProd } from '../models/catprod.model';
 import { ProductCart } from '../models/productcart.model';
 
@@ -23,7 +21,7 @@ export class ProduitsService {
   }
 
   public getListOfProducts(){
-    return this.http.get<CatProd>('./assets/menu.json');
+    return this.http.get<CatProd[]>('./assets/menu.json');
   }
 
   public setProductCart(product_cart:ProductCart[]){

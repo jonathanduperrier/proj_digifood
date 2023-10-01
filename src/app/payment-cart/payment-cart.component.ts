@@ -19,6 +19,7 @@ export class PaymentCartComponent {
       qteProd:0
     }
   ];
+
   ngOnInit(): void {
     this.initData();
   }
