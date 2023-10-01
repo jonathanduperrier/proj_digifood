@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { ListProductsComponent } from './list-products/list-products.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { PaymentCartComponent } from './payment-cart/payment-cart.component';
 
 @NgModule({
@@ -19,7 +19,8 @@ import { PaymentCartComponent } from './payment-cart/payment-cart.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    NgbDropdownModule
   ],
   providers: [],
   bootstrap: [AppComponent]

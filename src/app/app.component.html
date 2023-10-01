@@ -1,5 +1,18 @@
-<div><a routerLink="payment_cart">page du paiement</a></div>
-<div><a routerLink="list_products">Liste des produits</a></div>
+<div id="menu_principal" class="row">
+	<div class="col">
+		<div ngbDropdown class="d-inline-block">
+			<button type="button" class="btn btn-primary" id="dropdownBasic1" ngbDropdownToggle>
+				Menu Principal
+			</button>
+			<div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+				<button ngbDropdownItem routerLink="list_products">Liste des produits</button>
+				<button ngbDropdownItem routerLink="payment_cart">Page du paiement</button>
+			</div>
+		</div>
+	</div>
+
+</div>
+
 
 <app-list-products *ngIf="router.url === '/list_products'"></app-list-products>
 <app-payment-cart *ngIf="router.url === '/payment_cart'"></app-payment-cart>
