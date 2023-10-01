@@ -10,5 +10,21 @@ import { ProductCart } from '../models/productcart.model';
   styleUrls: ['./payment-cart.component.scss']
 })
 export class PaymentCartComponent {
-  
+  constructor(
+    private produitsService: ProduitsService,
+) { }
+  public product_cart:ProductCart[] = [
+    {
+      id:0,
+      qteProd:0
+    }
+  ];
+  ngOnInit(): void {
+    this.initData();
+  }
+  public initData() {
+    this.product_cart = this.produitsService.getProductCart();
+    console.log("02 product_cart : ");
+    console.log(this.product_cart);
+  }
 }

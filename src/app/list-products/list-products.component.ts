@@ -37,7 +37,6 @@ export class ListProductsComponent {
 ) { }
 
   ngOnInit(): void {
-    console.log("init list product");
     this.initData();
   }
 
