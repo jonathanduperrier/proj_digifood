@@ -17,7 +17,7 @@ import { CatProd } from '../models/catprod.model';
 export class ListProductsComponent {
   public produits: any;
   public destroy$: Subject<boolean> = new Subject<boolean>();
-  active = 'Boissons';
+  public activeTab = '';
 
   constructor(
     private http: HttpClient,
@@ -33,10 +33,15 @@ export class ListProductsComponent {
     this.produitsService.getListOfProducts().pipe(takeUntil(this.destroy$)).subscribe(
       (res: CatProd) => {
         this.produits = res;
-        // console.log("this.produits");
-        // console.log(this.produits.categories);
+        this.activeTab = this.produits.categories[0].name;
       }
     );
+  }
+
+  public addToKart(id:Number) {
+    console.log("addToKart " + id);
+    
+
   }
 
 }

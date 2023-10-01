@@ -1,5 +1,5 @@
 <h1>Liste des produits</h1>
-<ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+<ul ngbNav #nav="ngbNav" [(activeId)]="activeTab" class="nav-tabs">
 	<li [ngbNavItem]="p.name" *ngFor="let p of this.produits.categories">
 		<button ngbNavLink>{{p.name}}</button>
 		<ng-template ngbNavContent>
@@ -7,9 +7,10 @@
                 <tr class="headerTable">
                     <td>ID</td>
                     <td>Nom du produit</td>
-                    <td>Prix</td>
+                    <td>Prix HT</td>
                     <td>Taux de TVA</td>
                     <td>Image du produit</td>
+                    <td>Panier</td>
                 </tr>
                 <ng-container *ngFor="let p1 of p.products">
                     <tr class="lineTable">
@@ -18,6 +19,13 @@
                         <td>{{p1.price}} €</td>
                         <td>{{p1.tva}} %</td>
                         <td><img src="{{p1.image}}" /></td>
+                        <td>
+                            <button type="button" class="btn btn-primary" (click)="addToKart(p1.id)">
+                                <span class="material-icons">
+                                    shopping_cart
+                                </span>
+                            </button>
+                        </td>
                     </tr>
                 </ng-container>
             </table>
@@ -27,4 +35,4 @@
 
 <div [ngbNavOutlet]="nav" class="mt-2"></div>
 
-<pre>Active: {{ active }}</pre>
+<pre>Active: {{ activeTab }}</pre>
