@@ -1,18 +1,26 @@
-<p>list-products works!</p>
-
+<h1>Liste des produits</h1>
 <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
 	<li [ngbNavItem]="p.name" *ngFor="let p of this.produits.categories">
 		<button ngbNavLink>{{p.name}}</button>
 		<ng-template ngbNavContent>
-            <ng-container *ngFor="let p1 of p.products">
-                <p>
-                    {{p1.id}}
-                    {{p1.name}}
-                    {{p1.price}}
-                    {{p1.tva}}
-                    {{p1.image}}
-                </p>
-            </ng-container>
+            <table>
+                <tr class="headerTable">
+                    <td>ID</td>
+                    <td>Nom du produit</td>
+                    <td>Prix</td>
+                    <td>Taux de TVA</td>
+                    <td>Image du produit</td>
+                </tr>
+                <ng-container *ngFor="let p1 of p.products">
+                    <tr>
+                        <td>{{p1.id}}</td>
+                        <td>{{p1.name}}</td>
+                        <td>{{p1.price}} €</td>
+                        <td>{{p1.tva}} %</td>
+                        <td><img src="{{p1.image}}" /></td>
+                    </tr>
+                </ng-container>
+            </table>
 		</ng-template>
 	</li>
 </ul>
