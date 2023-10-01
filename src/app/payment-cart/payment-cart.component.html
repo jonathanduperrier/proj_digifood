@@ -2,3 +2,4 @@
 <div *ngFor="let p of this.product_cart">
     {{p.id}} - {{p.qteProd}}
 </div>
+<button type="button" class="btn btn-primary" (click)="pay()" routerLink="list_products">Payer</button>

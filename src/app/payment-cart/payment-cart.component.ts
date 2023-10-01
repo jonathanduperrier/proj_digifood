@@ -24,7 +24,9 @@ export class PaymentCartComponent {
   }
   public initData() {
     this.product_cart = this.produitsService.getProductCart();
-    console.log("02 product_cart : ");
-    console.log(this.product_cart);
+  }
+  public pay() {
+    this.product_cart = [];
+    this.produitsService.setProductCart(this.product_cart);
   }
 }
