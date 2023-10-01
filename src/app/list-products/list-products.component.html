@@ -1,1 +1,22 @@
 <p>list-products works!</p>
+
+<ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+	<li [ngbNavItem]="p.name" *ngFor="let p of this.produits.categories">
+		<button ngbNavLink>{{p.name}}</button>
+		<ng-template ngbNavContent>
+            <ng-container *ngFor="let p1 of p.products">
+                <p>
+                    {{p1.id}}
+                    {{p1.name}}
+                    {{p1.price}}
+                    {{p1.tva}}
+                    {{p1.image}}
+                </p>
+            </ng-container>
+		</ng-template>
+	</li>
+</ul>
+
+<div [ngbNavOutlet]="nav" class="mt-2"></div>
+
+<pre>Active: {{ active }}</pre>
