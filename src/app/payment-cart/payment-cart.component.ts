@@ -33,38 +33,34 @@ export class PaymentCartComponent {
         this.produits = res.categories;
         this.globalObj = [];
         for(let i=0;i<this.produits.length; i++){
-          //let k=0;
           for(let j=0;j<this.produits[i].products.length; j++){
             this.listeProd.push(this.produits[i].products[j]);
-            if(this.globalObj !== undefined){
-              this.globalObj.push(
-                {
-                  id:this.produits[i].products[j].id,
-                  name: this.produits[i].products[j].name,
-                  price: this.produits[i].products[j].price,
-                  tva: this.produits[i].products[j].tva,
-                  image: this.produits[i].products[j].image,
-                  qteProd: this.product_cart[j].qteProd
-                }
-              );
-              /*this.globalObj[j].id = this.produits[i].products[j].id;
-              this.globalObj[j].name = this.produits[i].products[j].name;
-              this.globalObj[j].price = this.produits[i].products[j].price;
-              this.globalObj[j].tva = this.produits[i].products[j].tva;
-              this.globalObj[j].image = this.produits[i].products[j].image;
-              this.globalObj[j].qteProd = this.product_cart[j].qteProd;*/
-            }
           }
         }
-        console.log("this.listeProd : ");
-        console.log(this.listeProd);
-        console.log("this.product_cart : ");
-        console.log(this.product_cart);
-        console.log("this.globalObj : ");
-        console.log(this.globalObj);
+        this.globalObj = this.fusion_prod_qty(this.listeProd, this.product_cart);
       }
     );
   }
+
+  public fusion_prod_qty(listeProd:Produit[], product_cart:ProductCart[]){
+    let globalObj:ProduitQte[] = [];
+    this.listeProd.forEach(res1 => {
+      this.product_cart.forEach(res2 => {
+        if(res1.id === res2.id){
+          globalObj.push({
+            id: res1.id,
+            name: res1.name,
+            price: res1.price,
+            tva: res1.tva,
+            image: res1.image,
+            qteProd: res2.qteProd,
+          });
+        }
+      });
+    });
+    return globalObj;
+  }
+
   public pay() {
     this.product_cart = [];
     this.produitsService.setProductCart(this.product_cart);
