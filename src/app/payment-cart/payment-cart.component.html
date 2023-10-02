@@ -1,8 +1,4 @@
 <h1>Page du paiement</h1>
-<div *ngFor="let p of this.product_cart">
-    {{p.id}} - {{p.qteProd}}
-</div>
-
 <table>
     <tr class="headerTable">
         <td>ID</td>
@@ -10,22 +6,24 @@
         <td>Prix TTC</td>
         <td>Quantités</td>
     </tr>
-    <tr class="lineTable" *ngFor="let l of globalObj">
-        <td>
-            {{l.id}}
-        </td>
-        <td>
-            {{l.name}}
-        </td>
-        <td>
-            {{l.price+(l.price*(l.tva/100))}}
-        </td>
-        <td>
-            {{l.qteProd}}
-        </td>
-    </tr>
-
+    <ng-container *ngFor="let l of globalObj">
+        <tr class="lineTable" *ngIf="l.qteProd > 0">
+            <td>
+                {{l.id}}
+            </td>
+            <td>
+                {{l.name}}
+            </td>
+            <td>
+                {{l.price+(l.price*(l.tva/100))}}
+            </td>
+            <td>
+                {{l.qteProd}}
+            </td>
+        </tr>
+    </ng-container>
 </table>
 <div id="payButton">
-    <button type="button" class="btn btn-danger" (click)="pay()" routerLink="list_products">Payer</button>
+    <button type="button" class="btn btn-secondary" (click)="confirm_cancel()" routerLink="list_products">Annuler la commande</button>
+    <button type="button" class="btn btn-danger" (click)="confirm_pay()" routerLink="list_products">Payer {{montant_total}} €</button>
 </div>

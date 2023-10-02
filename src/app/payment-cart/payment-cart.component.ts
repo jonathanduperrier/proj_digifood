@@ -22,6 +22,7 @@ export class PaymentCartComponent {
   public destroy$: Subject<boolean> = new Subject<boolean>();
   public listeProd: Produit[] = [];
   public globalObj: ProduitQte[] = [];
+  public montant_total: number = 0;
 
   ngOnInit(): void {
     this.initData();
@@ -38,6 +39,7 @@ export class PaymentCartComponent {
           }
         }
         this.globalObj = this.fusion_prod_qty(this.listeProd, this.product_cart);
+        this.montant_total = this.calcul_total(this.globalObj);
       }
     );
   }
@@ -59,6 +61,26 @@ export class PaymentCartComponent {
       });
     });
     return globalObj;
+  }
+
+  public calcul_total(globalObj:ProduitQte[]){
+    let calc_total = 0;
+    globalObj.forEach(val => {
+      calc_total = calc_total + ((val.price + val.price*(val.tva/100)) * val.qteProd)//{{l.price+(l.price*(l.tva/100))}}
+    });
+    return calc_total;
+  }
+
+  public confirm_cancel() {
+    if (window.confirm("Voulez-vous vraiment annuler la commande en cours ?")) {
+      this.pay();
+    }
+  }
+
+  public confirm_pay() {
+    if (window.confirm("Voulez-vous vraiment confirmer et payer la commande en cours ?")) {
+      this.pay();
+    }
   }
 
   public pay() {
