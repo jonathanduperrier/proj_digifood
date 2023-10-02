@@ -25,5 +25,5 @@
 </table>
 <div id="payButton">
     <button type="button" class="btn btn-secondary" (click)="confirm_cancel()" routerLink="list_products">Annuler la commande</button>
-    <button type="button" class="btn btn-danger" (click)="confirm_pay()" routerLink="list_products">Payer {{montant_total}} €</button>
+    <button type="button" class="btn btn-danger" (click)="confirm_pay()" routerLink="list_products">Payer {{montant_total.toFixed(2)}} €</button>
 </div>
