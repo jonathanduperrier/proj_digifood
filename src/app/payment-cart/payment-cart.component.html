@@ -10,11 +10,21 @@
         <td>Prix TTC</td>
         <td>Quantités</td>
     </tr>
-    <!-- <ng-container *ngFor="let p1 of p.products">
-        <tr class="lineTable">
-            
-        </tr>
-    </ng-container> -->
+    <tr class="lineTable" *ngFor="let l of globalObj">
+        <td>
+            {{l.id}}
+        </td>
+        <td>
+            {{l.name}}
+        </td>
+        <td>
+            {{l.price+(l.price*(l.tva/100))}}
+        </td>
+        <td>
+            {{l.qteProd}}
+        </td>
+    </tr>
+
 </table>
 <div id="payButton">
     <button type="button" class="btn btn-danger" (click)="pay()" routerLink="list_products">Payer</button>

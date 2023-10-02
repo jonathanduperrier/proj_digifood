@@ -33,7 +33,7 @@ export class ListProductsComponent {
         product_cart = this.produitsService.getProductCart();
         for(let i=0; i<this.produits.length; i++){
           for(let j=0; j<this.produits[i].products.length; j++){
-            product_cart.push({id: this.produits[i].products[j].id, qteProd:0})
+            product_cart.push({id: this.produits[i].products[j].id, qteProd:0});
           }
         }
         this.produitsService.setProductCart(product_cart);

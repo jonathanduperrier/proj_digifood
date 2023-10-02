@@ -8,8 +8,7 @@
                 <tr class="headerTable">
                     <td>ID</td>
                     <td>Nom du produit</td>
-                    <td>Prix HT</td>
-                    <td>Taux de TVA</td>
+                    <td>Prix TTC</td>
                     <td>Image du produit</td>
                     <td>Ajouter au panier</td>
                 </tr>
@@ -17,8 +16,7 @@
                     <tr class="lineTable">
                         <td>{{p1.id}}</td>
                         <td>{{p1.name}}</td>
-                        <td>{{p1.price}} €</td>
-                        <td>{{p1.tva}} %</td>
+                        <td> {{p1.price+(p1.price*(p1.tva/100))}} €</td>
                         <td><img src="{{p1.image}}" /></td>
                         <td>
                             <button type="button" class="btn btn-primary" (click)="addToKart(p1.id)">

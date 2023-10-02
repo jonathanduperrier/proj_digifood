@@ -1,5 +1,5 @@
 export class ProductCart {
-    public id:Number;
+    public id:number;
     public qteProd:number;
 
     constructor() {

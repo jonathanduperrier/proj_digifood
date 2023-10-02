@@ -9,12 +9,7 @@ import { ProductCart } from '../models/productcart.model';
 
 export class ProduitsService {
 
-  product_cart:ProductCart[] = [
-    {
-      id:0,
-      qteProd:0
-    }
-  ];
+  product_cart:ProductCart[] = [];
 
   constructor(private http: HttpClient) {
 
