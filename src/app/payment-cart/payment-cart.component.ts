@@ -72,15 +72,13 @@ export class PaymentCartComponent {
   }
 
   public confirm_cancel() {
-    if (window.confirm("Voulez-vous vraiment annuler la commande en cours ?")) {
-      this.pay();
-    }
+    window.confirm("Voulez-vous vraiment annuler la commande en cours ?");
+    this.pay();
   }
 
   public confirm_pay() {
-    if (window.confirm("Voulez-vous vraiment confirmer et payer la commande en cours ?")) {
-      this.pay();
-    }
+    window.confirm("Voulez-vous vraiment confirmer et payer la commande en cours ?");
+    this.pay();
   }
 
   public pay() {
