@@ -66,7 +66,7 @@ export class PaymentCartComponent {
   public calcul_total(globalObj:ProduitQte[]){
     let calc_total = 0;
     globalObj.forEach(val => {
-      calc_total = calc_total + ((val.price + val.price*(val.tva/100)) * val.qteProd)//{{l.price+(l.price*(l.tva/100))}}
+      calc_total = calc_total + ((val.price + val.price*(val.tva/100)) * val.qteProd);
     });
     return calc_total;
   }
